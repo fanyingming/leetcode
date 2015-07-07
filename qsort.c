@@ -5,28 +5,21 @@ void qsort_my(int *nums, int begin, int end)
 {
 	int i, j, key;
 
-	if(begin >= end)
+	if (begin >= end)
 		return;
 
 	key = nums[begin];
 	i = begin;
 	j = end;
 
-	while(i < j)
-	{
-
-		while(i<j && nums[j]>=key)
-		{
+	while (i < j){
+		while (i<j && nums[j]>=key)
 			j--;
-		}
 
 		nums[i] = nums[j];
-//		nums[j] = key;
 
-		while(i<j && nums[i]<=key)
-		{
+		while (i<j && nums[i]<=key)
 			i++;
-		}
 
 		nums[j] = nums[i];
 		nums[i] = key;
