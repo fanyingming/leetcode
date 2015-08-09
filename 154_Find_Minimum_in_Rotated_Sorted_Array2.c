@@ -1,10 +1,3 @@
-int min_my(int a, int b) {
-    if (a <= b)
-        return a;
-    else
-        return b;
-}
-
 int findMin(int* nums, int numsSize) {
     int min = nums[0];
     int i, m;
