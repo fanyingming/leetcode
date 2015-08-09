@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 int min_my(int a, int b) {
     if (a <= b)
         return a;
@@ -22,22 +20,16 @@ int findMin(int* nums, int numsSize) {
     while (begin < end) {
         m = (begin+end)/2;
         
-        if (nums[m] > nums[begin])
-            begin = m;
-        else if (nums[m] < nums[begin])
+        if (nums[m] > nums[end]) {//当中间的值小于最右边值时，bein = m+1，因为最小值一定位于[m+1,r]。
+            begin = m+1;
+        } else if (nums[m] < nums[end]) {
             end = m;
-        else //m and begin is the same index.
-            return min_my(nums[begin], nums[end]);
+        } else {//当中间值和end值相等时，他们一定不是同一个小标，同一个index的情况值出现于m和begin相等，所以这里直接-1是
+        //没有什么问题的。减一后大不了最小值落到m处。
+            end--;
+        }
     }
     //assert(begin == end)
     
     return nums[begin];
-}
-
-int main()
-{
-	int a[3] = {3,1,3};
-	int rv = findMin(a, 3);
-
-	printf("%d\n",rv);
 }
