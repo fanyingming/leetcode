@@ -1,42 +1,28 @@
-#include <stdio.h>
-
 int findMin(int* nums, int numsSize) {
-    int left, right, middle;
+    int min = nums[0];
+    int i, m;
+    int begin, end;
     
-    //error handling.
-    if (numsSize <= 0)
-        return -1;
+    if (nums[0] <= nums[numsSize-1])
+        return nums[0];
     
-    left = 0;
-    right = numsSize-1;
-    middle = (left+right)/2;
+    begin = 0;
+    end = numsSize-1;
     
-    //can make sure that left, right, middle won't bigger than numsSize-1 or less than 0.
-    while (left <= right)
-    {
-        if (left == right || right == middle)
-            return nums[middle];
-        if (middle == left)
-            return nums[right];
-        if (nums[middle] > nums[right])
-        {
-            left = middle;
-            middle = (left+right)/2;
-        }
-        else
-        {
-            right = middle;
-            middle = (left + right)/2;
-        }
+    //invariant: min value in [begin, end]
+    while (begin < end) {
+        m = (begin+end)/2;
 
+        if (nums[m] < nums[end])
+            end = m;
+        else if (nums[m] > nums[end])//这里m要加一，否则会有死循环。因为begin与m是可能重合的，此时会死循环。
+            begin = m+1;
+//        else 
+        //assert(0);
     }
+    //assert(begin == end)
+    
+    return nums[begin];
+    
 
-}
-
-int main()
-{
-    int nums[] = {1, 2};
-    int res = findMin(nums, sizeof(nums)/sizeof(nums[0]));
-
-    printf("result is %d\n", res);
 }
