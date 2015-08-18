@@ -1,11 +1,11 @@
-#include <stdio.h>
-//  Definition for singly-linked list.
-  struct ListNode {
-      int val;
-      struct ListNode *next;
-  };
- 
-struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* mergeTwoLists_old(struct ListNode* l1, struct ListNode* l2) {
     struct ListNode* h;
     struct ListNode* cur;
     //error handling.
@@ -46,27 +46,30 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
     return h;
 }
 
-int main()
-{
-	struct ListNode a, b1, b2, b3;
-	struct ListNode* h;
-	int i;
-
-	a.val = 5;
-	b1.val = 1;
-	b2.val = 2;
-	b3.val = 4;
-
-	a.next = NULL;
-	b1.next = &b2;
-	b2.next = &b3;
-	b3.next = NULL;
-
-	h= mergeTwoLists( &a, &b1);
-	
-	while (h){
-		printf("%d\t", h->val);
-		h = h->next;
-	}
-	printf("\n");
+struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
+    struct ListNode* cur;
+    struct ListNode* cur1;
+    struct ListNode* cur2;
+    struct ListNode preNode;
+    //error handling.
+        
+    preNode.next = NULL;
+    cur = &preNode;
+    cur1 = l1;
+    cur2 = l2;
+    while (cur1 && cur2) {
+        if (cur1->val <= cur2->val) {
+            cur->next = cur1;
+            cur1 = cur1->next;
+        } else {
+            cur->next = cur2;
+            cur2 = cur2->next;
+        }
+        cur = cur->next;
+    }
+    if (cur1)
+        cur->next = cur1;
+    if (cur2)
+        cur->next = cur2;
+    return preNode.next;
 }
