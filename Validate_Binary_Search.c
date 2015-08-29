@@ -8,7 +8,7 @@
  */
 #include <limits.h>
 #include <stdint.h>
-bool recursive(struct TreeNode* root, int64_t min, int64_t max) {
+bool recursive_old(struct TreeNode* root, int64_t min, int64_t max) {
     bool bl, br;
     bl = br = true;
     if (!root) return true;
@@ -32,6 +32,15 @@ bool recursive(struct TreeNode* root, int64_t min, int64_t max) {
         return false;
 }
 
+
+bool recursive_new(struct TreeNode* root, int64_t min, int64_t max) {
+    if (!root) return true;
+
+    if (root->val <= min || root->val >= max)   return false;
+
+    return recursive(root->left, min, root->val) && recursive(root->right, root->val, max);
+}
+
 bool isValidBST(struct TreeNode* root) {
-    return recursive(root, LLONG_MIN, LLONG_MAX);
+    return recursive_new(root, LLONG_MIN, LLONG_MAX);
 }
