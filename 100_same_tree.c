@@ -26,20 +26,7 @@ bool searchTree(struct TreeNode *p, struct TreeNode *q){
         return false;
     if(p->val != q->val)
         return false;
-    
- //   assert(p->val == q->val)
-    {
-        bool left, right;
-        
-        left =  searchTree(p->left, q->left);
-        right = searchTree(p->right, q->right);
-        
-        if (left && right)
-            return true;
-        else
-            return false;
-    }
-    
+    return searchTree(p->left, q->left) && searchTree(p->right, q->right);    
 } 
  
 bool isSameTree(struct TreeNode* p, struct TreeNode* q) {
