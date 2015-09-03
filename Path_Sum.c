@@ -7,24 +7,17 @@
  * };
  */
 bool DFS(struct TreeNode* root, int sum, int cur) {
+    if (!root)
+        return false;
     if (!root->left && !root->right) {//leaf node.
         if (cur + root->val == sum)
             return true;
         else
             return false;
     }
-    
-    if (root->left)
-        if (DFS(root->left, sum, cur + root->val))
-            return true;
-    if (root->right)
-        if (DFS(root->right, sum, cur + root->val))
-            return true;
 
-    return false;
+    return DFS(root->left, sum, cur + root->val) || DFS(root->right, sum, cur + root->val);
 } 
 bool hasPathSum(struct TreeNode* root, int sum) {
-    if (root == NULL)
-        return false;
     return DFS(root, sum, 0);
 }
