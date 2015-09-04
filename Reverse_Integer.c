@@ -2,6 +2,25 @@
 #include <stdio.h>
 
 int reverse(int x) {
+	int num, res;
+	int maxValue = 0x7fffffff;
+	int minValue = -maxValue - 1;
+	res = 0;
+	if (x == minValue)	return 0;
+
+	num = x < 0 ? -x : x;//this may overflow.
+
+	while (num) {
+		if (res > (maxValue - num % 10) / 10)//judge overflow
+			return 0;
+		res = res * 10 + num % 10;
+		num = num / 10;
+	}
+
+	return x < 0 ? -res : res;
+}
+
+int reverse_old(int x) {
 	int64_t res = 0;
 	int sig = 1;
 	int input = x;
