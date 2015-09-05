@@ -31,30 +31,26 @@ int divide(int dividend, int divisor) {
 		sig = -1;
 		divisor = -divisor;
 	}
-
+	//invariant: 
 	while (dividend >= divisor) {
-		while (bit_count+1 <= max_bits) {
-			if ((divisor << (bit_count + 1)) < dividend) {
+		bit_count = 0;
+		while (bit_count + 1 <= max_bits) {
+			if ((dividend >> (bit_count + 1)) >= divisor) {//notice: divisor<< may overflow
 				if (bit_count + 1 == max_bits) {
 					bit_count++;
-					sum = divisor << (bit_count);
 					break;
 				}
-				else
+				else {
 					bit_count++;
-			}
-			else if ((divisor << (bit_count + 1)) == dividend) {
-				res += 1 << (bit_count + 1);
-				return sig*res;
+				}
 			}
 			else {
-				sum = divisor << bit_count;
 				break;
 			}
 		}
+		sum = divisor << (bit_count);
 		res += 1 << (bit_count);
 		dividend -= sum;
-		bit_count = 0;
 	}
 
 	return sig*res;
