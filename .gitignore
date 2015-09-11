@@ -4,3 +4,6 @@
 !.gitignore
 !/DP
 !/backtrace
+!/sort
+!/binary search
+!/binary tree
