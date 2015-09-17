@@ -11,13 +11,13 @@ public:
 			return result;
 
 		//as init value.
-		sta.push_back(root);
+		sta.push(root);
 
 		while (sta.empty() == false) {
 			struct TreeNode *node = sta.top();
 
-			stack.pop_back();
-			result.push_back(node->val);
+			stack.pop();
+			result.push(node->val);
 
 			if (node->right != NULL)
 				stack.push_back(node->right);
