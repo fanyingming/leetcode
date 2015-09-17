@@ -5,12 +5,12 @@ int bin_search_recursive(int *array, int v, int l, int r){
 	int m;
 	int ret;
 
-	m = (l+r)/2;
+	m = l + (r-l)/2;//(l+r)/2;
 
 	assert(l <= r);
-	if(v == array[m])
+	if (v == array[m])
 		return m;
-	if(v > array[m])
+	if (v > array[m])
 		ret = bin_search_recursive(array, v, m+1, r);
 	else
 		ret = bin_search_recursive(array, v, l, m-1);
