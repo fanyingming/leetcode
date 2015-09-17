@@ -1,11 +1,6 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     struct TreeNode *left;
- *     struct TreeNode *right;
- * };
- */
+/*
+**采用如下的递归构建数，递归在从底至顶过程中，不断返回创建出的节点，以作为上一次的孩子节点。
+*/
 int index1;
 
 struct TreeNode* buildBT (int* postorder, int* inorder, int left, int right) {
@@ -21,7 +16,7 @@ struct TreeNode* buildBT (int* postorder, int* inorder, int left, int right) {
     node = malloc(sizeof(struct TreeNode));
     node->val = postorder[index1--];
     node->right = buildBT(postorder, inorder, i+1, right);
-    node->left= buildBT(postorder, inorder, left, i-1);
+    node->left  = buildBT(postorder, inorder, left, i-1);
     return node;
 }
 
