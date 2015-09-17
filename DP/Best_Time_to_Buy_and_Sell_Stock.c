@@ -1,7 +1,7 @@
 int maxProfit(int* prices, int pricesSize) {
     int i;
     int max_profit = 0;
-    int min_price = 0;
+    int min_price = 0x7fffffff;
     
     if (prices == NULL || pricesSize < 2)   return 0;
     
