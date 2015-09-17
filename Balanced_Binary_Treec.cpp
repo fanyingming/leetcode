@@ -22,9 +22,6 @@ public:
         return max(depth_left, depth_right) + 1;
     }
     bool isBalanced(TreeNode* root) {
-        if (helper(root) >= 0)
-            return true;
-        else 
-            return false;
+        return helper(root) >= 0 ? true : false;
     }
 };
