@@ -1,11 +1,3 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     struct TreeNode *left;
- *     struct TreeNode *right;
- * };
- */
 int index1;
 
 struct TreeNode* buildBT (int* preorder, int* inorder, int left, int right) {

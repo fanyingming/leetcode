@@ -1,13 +1,3 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     struct TreeNode *left;
- *     struct TreeNode *right;
- * };
- */
-#include <limits.h>
-#include <stdint.h>
 bool recursive_old(struct TreeNode* root, int64_t min, int64_t max) {
     bool bl, br;
     bl = br = true;
