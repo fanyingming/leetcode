@@ -3,7 +3,6 @@ public:
     vector<int> findSubstring(string s, vector<string>& words) {
         vector<int> res;
         unordered_multiset<string> htable;
-        unordered_multiset<string> ttable;
         
         if (s.size() == 0 || words.size() == 0) return res;
         
@@ -13,12 +12,10 @@ public:
         
         int wordSize = words[0].size();
         
-        for (int i = 0; i < s.size(); i++) {
-            if (s.size()-1-i+1 < wordSize*words.size()) break;//剪枝,剩余单词长度不够
-            ttable.clear();
+        for (int i = 0; i < (int)(s.size() - wordSize*words.size()); i++) {
+            unordered_multiset<string> ttable;
             for (int j = i; j < s.size(); j += wordSize) {
-                string word;
-                for (int k = 0; k < wordSize; k++)  word += s[j+k];
+                string word = s.substr(j, wordSize);
                 unordered_multiset<string>::iterator it = htable.find(word);
                 if (it == htable.end()) {//word not in dict.
                     break;
