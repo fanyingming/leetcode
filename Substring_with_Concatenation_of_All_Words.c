@@ -2,33 +2,58 @@ class Solution {
 public:
     vector<int> findSubstring(string s, vector<string>& words) {
         vector<int> res;
-        unordered_multiset<string> htable;
-        
+        unordered_map<string, int> htable;
+        int begin = 0;
+        int count = 0;
+
         if (s.size() == 0 || words.size() == 0) return res;
-        
-        for (int i = 0; i < words.size(); i++) {
-            htable.insert(words[i]);
-        }
-        
+
+        for (int i = 0; i < words.size(); i++)
+            htable[words[i]]++;
+
         int wordSize = words[0].size();
-        
-        for (int i = 0; i < (int)(s.size() - wordSize*words.size()); i++) {
-            unordered_multiset<string> ttable;
-            for (int j = i; j < s.size(); j += wordSize) {
-                string word = s.substr(j, wordSize);
-                unordered_multiset<string>::iterator it = htable.find(word);
-                if (it == htable.end()) {//word not in dict.
-                    break;
-                } else {
-                    if (ttable.count(word) < htable.count(word)) // dumplicate words
-                        ttable.insert(word);
-                    else
-                        break;
+        for (int b = 0; b < wordSize; b++) {
+            unordered_map<string, int> ttable;
+            count = 0;
+            begin = b;
+            for (int i = b; i <= (int)(s.size() - wordSize); i += wordSize) {
+                string word = s.substr(i, wordSize);
+                if (htable.find(word) == htable.end()) {
+                    ttable.clear();
+                    begin = i + wordSize;
+                    count = 0;
+                    continue;
+                }
+                count++;
+                if (ttable.find(word) == ttable.end()) {
+                    ttable[word]++;
+                }
+                else {
+                    ttable[word]++;
+
+                    if (ttable[word] > htable[word]){
+                        int t;
+                        for (t = begin; t < i; t += wordSize) {//remove until meet dumplicate
+                            count--;
+                            ttable[s.substr(t, wordSize)]--;
+                            if (s.substr(t, wordSize) == word)
+                                break;
+                        }
+                        if (t < i)
+                            begin = t + wordSize;
+                        else
+                            begin = i;
+                    }
+                }
+
+                if (count == words.size()) {
+                    res.push_back(begin);
+                    count = 0;
+                    i = begin;
+                    begin = begin + wordSize;
+                    ttable.clear();
                 }
             }
-            
-            if (ttable.size() == htable.size())
-                res.push_back(i);
         }
         return res;
     }
