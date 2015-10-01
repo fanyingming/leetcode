@@ -1,3 +1,6 @@
+/*
+** 这道题注意n的符号，以及n为奇数时候的处理。
+*/
 double binary(double x, int n) {
     double half, value;
     if (n == 0)
