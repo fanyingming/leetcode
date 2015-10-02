@@ -1,3 +1,7 @@
+/*  这道题要注意题目里说得重复，重复会导致截断发生在重复出现数字中间。
+**  如果截断发生在重复出现的最小数字中间，如下：1 1 3 1，
+**  这样的话，不做特殊处理，原来的方法就会失效。
+*/
 int binarySearch (int* nums, int numsSize, int target, int l, int r) {
     int m;
     
