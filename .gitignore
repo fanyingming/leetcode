@@ -12,6 +12,8 @@
 !/string and array
 !/hash
 !/bit manipulate
+!/math
+!/stack
 test.c
 
 backtrace/.DS_Store
