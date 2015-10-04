@@ -21,8 +21,8 @@ categories: binary search
 
 #### 二分查找应用
 
-- <https://leetcode.com/problems/sqrtx/
-- <https://leetcode.com/problems/powx-n/
+- <https://leetcode.com/problems/sqrtx/>
+- <https://leetcode.com/problems/powx-n/>
 
 
 
