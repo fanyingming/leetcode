@@ -6,4 +6,6 @@ permalink: /about/
 
 建立这个站是为了放一些对leetcode的总结，方便自己查看。
 
-我的博客地址在[yingmingfan.me](http://yingmingfan.me/)
+我的leetcode代码在 [github](https://github.com/fanyingming/leetcode)
+
+我的博客在 [yingmingfan.me](http://yingmingfan.me/)
