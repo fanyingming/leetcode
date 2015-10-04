@@ -2,4 +2,4 @@
 
 my leetcode solution
 
-a website is [here](http://fanyingming.github.io/leetcode)
+a website include some summary is [here](http://fanyingming.github.io/leetcode)
