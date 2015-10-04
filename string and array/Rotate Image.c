@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 void rotate(int** matrix, int matrixRowSize, int matrixColSize) {
     int x, y, t;
     
@@ -20,31 +18,4 @@ void rotate(int** matrix, int matrixRowSize, int matrixColSize) {
     }
         
 }
-int *a[3]
 
-int (*a)[3]
-int main() {
-	int a1[3] = {1,2,3};
-	int a2[3] = {4,5,6};
-	int a3[3] = {7,8,9};
-	int *a[3] = {a1, a2, a3};
-	int x, y;
-
-	for (y = 0; y < 3; y++) {
-		for (x = 0; x < 3; x++) {
-			printf("%d\t",*(*(a+y)+x));
-		}
-		printf("\n");
-	}
-
-	printf("--\n");
-
-	rotate(a, 3, 3);
-
-	for (y = 0; y < 3; y++) {
-		for (x = 0; x < 3; x++) {
-			printf("%d\t",*(*(a+y)+x));
-		}
-		printf("\n");
-	}
-}
