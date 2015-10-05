@@ -2,7 +2,7 @@
 layout: post
 title:  "bit manipulation"
 date:   2015-10-04 16:50:00
-categories: bit manipulation
+categories: 题型总结
 ---
 
 #### 利用int的二进制中的bit。
@@ -20,6 +20,9 @@ categories: bit manipulation
 #### 其他
 - <http://oj.leetcode.com/problems/divide-two-integers/>
 - <https://leetcode.com/problems/majority-element/>
+
+#### 代码
+<https://github.com/fanyingming/leetcode/tree/master/bit%20manipulate>
 
 
 

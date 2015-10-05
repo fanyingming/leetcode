@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "binary search"
+title:  二分查找
 date:   2015-10-04 16:51:00
-categories: binary search
+categories: 题型总结
 ---
 
 #### 普通二分查找
@@ -23,6 +23,9 @@ categories: binary search
 
 - <https://leetcode.com/problems/sqrtx/>
 - <https://leetcode.com/problems/powx-n/>
+
+#### 代码
+<https://github.com/fanyingming/leetcode/tree/master/binary%20search>
 
 
 

@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "双指针"
+title:  双指针
 date:   2015-10-04 16:47:00
-categories: 双指针
+categories: 题型总结
 ---
 
 #### 前言
@@ -36,5 +36,7 @@ categories: 双指针
 - <https://leetcode.com/problems/remove-nth-node-from-end-of-list/>
 - <https://leetcode.com/problems/palindrome-linked-list/>
 
+#### 代码
+<https://github.com/fanyingming/leetcode/tree/master/two%20pointers>
 
 

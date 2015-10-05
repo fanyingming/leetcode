@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "二叉树"
+title:  二叉树
 date:   2015-10-04 15:47:57
-categories: 二叉树
+categories: 题型总结
 ---
 
 ### 二叉数遍历
@@ -58,5 +58,8 @@ categories: 二叉树
 - <https://leetcode.com/problems/kth-smallest-element-in-a-bst/>
 - <https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/>
 - <https://leetcode.com/problems/binary-search-tree-iterator/>
+
+#### 代码
+<https://github.com/fanyingming/leetcode/tree/master/binary%20tree>
 
 

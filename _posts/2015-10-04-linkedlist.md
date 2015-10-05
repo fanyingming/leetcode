@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "链表"
+title:  链表
 date:   2015-10-04 16:39:00
-categories: 链表
+categories: 题型总结
 ---
 
 #### 基本操作
@@ -41,5 +41,7 @@ categories: 链表
 
 -  <https://leetcode.com/problems/copy-list-with-random-pointer/> not easy to think
 
+#### 代码
+<https://github.com/fanyingming/leetcode/tree/master/linked%20list>
 
 
