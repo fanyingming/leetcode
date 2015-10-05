@@ -8,4 +8,4 @@ permalink: /about/
 
 我的leetcode代码在 [github](https://github.com/fanyingming/leetcode)
 
-我的博客在 [yingmingfan.me](http://yingmingfan.me/)
+我的博客在 [yingming.me](http://yingming.me/)
