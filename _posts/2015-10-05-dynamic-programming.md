@@ -2,7 +2,7 @@
 layout: post
 title:  动态规划
 date:  2015-10-05 17:24:33
-categories: 题型总结
+categories: summary
 ---
 
 #### 斐波那契数列
@@ -25,7 +25,7 @@ categories: 题型总结
 - <https://leetcode.com/problems/unique-paths/>
 - <https://leetcode.com/problems/unique-paths-ii/>
 - <https://leetcode.com/problems/minimum-path-sum/>
-- <https://leetcode.com/problems/house-robber/ not easy to understand>
+- <https://leetcode.com/problems/house-robber/> not easy to understand
 - <https://leetcode.com/problems/house-robber-ii/ not easy to understand>
 
 #### 代码

@@ -2,7 +2,7 @@
 layout: post
 title:  "bit manipulation"
 date:   2015-10-04 16:50:00
-categories: 题型总结
+categories: summary
 ---
 
 #### 利用int的二进制中的bit。

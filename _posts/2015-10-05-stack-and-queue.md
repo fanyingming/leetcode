@@ -2,7 +2,7 @@
 layout: post
 title:  栈和队列
 date:  2015-10-05 17:41:55
-categories: 题型总结
+categories: summary
 ---
 
 #### 栈

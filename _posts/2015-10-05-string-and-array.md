@@ -2,7 +2,7 @@
 layout: post
 title:  字符串和数组
 date:  2015-10-05 17:37:49
-categories: 题型总结
+categories: summary
 ---
 
 #### 字符串

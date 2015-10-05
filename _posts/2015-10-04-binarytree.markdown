@@ -2,7 +2,7 @@
 layout: post
 title:  二叉树
 date:   2015-10-04 15:47:57
-categories: 题型总结
+categories: summary
 ---
 
 ### 二叉数遍历

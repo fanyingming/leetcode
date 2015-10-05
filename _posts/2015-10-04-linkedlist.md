@@ -2,7 +2,7 @@
 layout: post
 title:  链表
 date:   2015-10-04 16:39:00
-categories: 题型总结
+categories: summary
 ---
 
 #### 基本操作

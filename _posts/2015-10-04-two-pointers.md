@@ -2,7 +2,7 @@
 layout: post
 title:  双指针
 date:   2015-10-04 16:47:00
-categories: 题型总结
+categories: summary
 ---
 
 #### 前言

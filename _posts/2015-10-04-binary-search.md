@@ -2,7 +2,7 @@
 layout: post
 title:  二分查找
 date:   2015-10-04 16:51:00
-categories: 题型总结
+categories: summary
 ---
 
 #### 普通二分查找
