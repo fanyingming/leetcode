@@ -17,7 +17,7 @@ categories: 题型总结
 
 #### 数据结构为数组：
 
-- <https://leetcode.com/problems/move-zeroes/>
+1. <https://leetcode.com/problems/move-zeroes/>
 - <https://leetcode.com/problems/remove-element/>
 - <https://leetcode.com/problems/valid-palindrome/>
 - <https://leetcode.com/problems/remove-duplicates-from-sorted-array/>
