@@ -1,4 +1,29 @@
+void swap(int* nums, int i, int j) {
+    int t;
+    t = nums[i];
+    nums[i] = nums[j];
+    nums[j] = t;
+}
+
 void sortColors(int* nums, int numsSize) {
+    int l = 0;
+    int r = numsSize-1;
+    int i = 0;
+    while (i <= r) {
+        if (nums[i] == 0) {
+            swap(nums, i, l);
+            l++;
+            i++;//notice here.
+        } else if (nums[i] == 2){
+            swap(nums, i, r);
+            r--;
+        } else {
+            i++;
+        }
+    }
+}
+
+void sortColors_countSort(int* nums, int numsSize) {
     int i, j, k;
 	int count[3] = {0,0,0};
 
