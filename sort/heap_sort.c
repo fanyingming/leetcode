@@ -3,7 +3,11 @@
 #include <stdlib.h>
 
 #define HEAP_MAX_SIZE 100
-
+/*
+** 对于一个给定的数组（数组下表从1开始，为了方便找节点的左右子节点），堆排序的做法是：
+** 1. 建堆：从n/2个节点一直到root节点，调用max_heapify，对一个节点和他的子节点进行比较，最大值放上边；
+** 2. 从数组最后一个开始，每次把顶端元素和最后一个元素替换，最大堆的结果得到从小到大的排序。
+*/
 typedef struct heap{
 	int arr[HEAP_MAX_SIZE];
 	int length;

@@ -5,6 +5,13 @@
  *     struct ListNode *next;
  * };
  */
+ /*
+ ** K路归并，普通算法的复杂度是多少？O(nk),比如循环归并，1和2归并好后，与3归并，每次2个链表归并时，
+ ** 都要从头开始往后遍历，因为没有对位置的记忆。
+ ** 使用最小堆进行K路归并：用每个链表的第一个元素建立一个K个元素的最小堆，每次取堆顶元素加入结果，
+ ** 因为是最小堆，所以每次顶部都是最小的值，这样就相当于我们能够记住一个位置，而不用像普通归并那样，
+ ** 每次从头开始~！！！复杂度是O(nlgk)
+ */
 struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
     struct ListNode* cur;
     struct ListNode* cur1;
