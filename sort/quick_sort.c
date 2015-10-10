@@ -90,3 +90,17 @@ int main()
 
 	printf("\n");
 }
+//2015-10-10 19:56:58
+int quickSort(int* nums, int begin, int end) {
+	int l, r, key;
+	l = begin;
+	r = end;
+	key = nums[begin];
+	while (l < r) {
+		while (l < r && nums[r] > key) r--;
+		while (l < r && nums[l] <= key) l++;
+		if (l < r)	swap(nums, l, r);
+	}
+	swap(nums, begin, l);
+	return l;
+}
