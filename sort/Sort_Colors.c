@@ -13,7 +13,7 @@ void sortColors(int* nums, int numsSize) {
         if (nums[i] == 0) {
             swap(nums, i, l);
             l++;
-            i++;//notice here.
+            i++;//notice here. necessary, position l must be element equal to 1.
         } else if (nums[i] == 2){
             swap(nums, i, r);
             r--;
