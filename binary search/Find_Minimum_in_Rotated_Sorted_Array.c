@@ -1,28 +1,19 @@
 int findMin(int* nums, int numsSize) {
-    int min = nums[0];
-    int i, m;
-    int begin, end;
-    
+    int l, r, m;
+
     if (nums[0] <= nums[numsSize-1])
         return nums[0];
-    
-    begin = 0;
-    end = numsSize-1;
-    
-    //invariant: min value in [begin, end]
-    while (begin < end) {
-        m = (begin+end)/2;
 
-        if (nums[m] < nums[end])
-            end = m;
-        else if (nums[m] > nums[end])//这里m要加一，否则会有死循环。因为begin与m是可能重合的，此时会死循环。
-            begin = m+1;
-//        else 
-        //assert(0);
+    l = 0;
+    r = numsSize-1;
+    while (l < r) {
+        m = l + (r-l)/2;
+        //注意！我们要与右边的边界比，与左边的边界比，问题多多！！！
+        //第二次重写就试了左边，写不对~~~
+        if (nums[m] < nums[r])
+            r = m;
+        else 
+            l = m+1;
     }
-    //assert(begin == end)
-    
-    return nums[begin];
-    
-
+    return nums[l];
 }
