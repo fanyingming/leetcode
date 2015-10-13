@@ -16,9 +16,8 @@ int binarySearch (int* nums, int numsSize, int target, int l, int r) {
 int findMin(int* nums, int numsSize) {
     int l, r, m;
 
-        else if (nums[m] > nums[end])//这里m要加一，否则会有死循环。因为begin与m是可能重合的，此时会死循环。
     if (nums[0] <= nums[numsSize-1])
-        return nums[0];
+        return 0;
 
     l = 0;
     r = numsSize-1;
@@ -29,7 +28,7 @@ int findMin(int* nums, int numsSize) {
         else 
             l = m+1;
     }
-    return nums[l];
+    return l;
 }
 
 int search(int* nums, int numsSize, int target) {
