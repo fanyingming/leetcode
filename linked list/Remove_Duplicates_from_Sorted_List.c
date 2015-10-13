@@ -6,25 +6,22 @@
  * };
  */
 struct ListNode* deleteDuplicates(struct ListNode* head) {
-    struct ListNode* cur;
-    struct ListNode* next;
-    
-    if (head == NULL || head->next == NULL)
-        return head;
-        
-    cur = head;
-    next= head->next;
-    //special case, only two nodes.
-    //invariant, list still sorted.
-    while (next){
-        if (cur->val != next->val){
-            cur->next = next;
-            cur = next;
+    struct ListNode* p1;
+    struct ListNode* p2;
+
+    if (head == NULL)   return head;
+
+    p1 = head;
+    p2 = head->next;
+    while (p2 != NULL) {
+        if (p1->val == p2->val) {
+            p2 = p2->next;
+            p1->next = p2; 
+        } else {
+            p1 = p1->next;
+            p2 = p2->next;
         }
-        next = next->next;
     }
-    //delete tail same nodes.
-    cur->next = NULL;
-    
+
     return head;
 }
