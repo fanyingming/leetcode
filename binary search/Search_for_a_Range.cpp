@@ -1,43 +1,39 @@
+/*
+** 旧方法需要遍历有三个循环，一个循环找到target，另外2个分别找到形同数的最左边以及最右边。
+** 新方法是只需2个循环，一次找到target及左边，另一次找最右边。
+*/
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
-        int begin, end;
+        int begin, end, right, middle;
         int l, r, m;
-        int left, right;
-        begin = end = -1;
-        left = l = 0;
-        right = r = nums.size()-1;
+        middle = begin = end = right = -1;
+        l = 0;
+        r = nums.size()-1;
+
         while (l <= r) {
             m = l + (r-l)/2;
-            if (nums[m] < target) {
-                left = l = m+1;
-            } else if (nums[m] > target) {
-                right = r = m-1;
-            } else {
-                break;
-            }
-        }
-        l = left;
-        r = m;
-        while (l <= r) {
-            m = l + (r-l)/2;
-            if (nums[m] < target) {
-                l = m+1;
-            } else if (nums[m] > target) {
+            if (nums[m] > target) {
                 r = m-1;
+            } else if (nums[m] < target) {
+                l = m+1;
             } else {
+                if (right == -1) {
+                    right = r;
+                    middle = m;
+                }
                 begin = m;
                 r = m-1;
             }
         }
-        l = m;
+        l = middle;
         r = right;
         while (l <= r) {
             m = l + (r-l)/2;
-            if (nums[m] < target) {
-                l = m+1;
-            } else if (nums[m] > target) {
+            if (nums[m] > target) {
                 r = m-1;
+            } else if (nums[m] < target) {
+                l = m+1;
             } else {
                 end = m;
                 l = m+1;

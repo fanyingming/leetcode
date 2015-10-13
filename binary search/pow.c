@@ -1,34 +1,30 @@
 /*
 ** 这道题注意n的符号，以及n为奇数时候的处理。
 */
-double binary(double x, int n) {
-    double half, value;
-    if (n == 0)
+double binary (double x, int n) {
+    double res;
+    if (n == 1)
+        return x;
+    else if (n == 0)    
         return 1;
 
-    half = binary(x, n / 2);
-    value = half*half;
-
-    return n % 2 == 1 ? value*x : value;
+    res = binary(x, n/2);
+    res *= res;
+    return (n&1) == 1 ? res*x : res;
 }
 
 double myPow(double x, int n) {
-    double sum = 1;
-    double x_bak = x;
-    int n_bak = n;
-    
-    if (x == 0)
-        return 0;
-    if (x < 0)
-        x_bak *= -1;
-    n_bak = abs(n);
+    double x_bak = x < 0 ? -x : x;
+    double n_bak = n < 0 ? -n : n;
+    double res;
 
-    sum = binary(x_bak, n_bak);
+    if (x == 0) return 0;
 
-    if (x < 0 && n % 2 == 1)
-        sum = -sum;
+    res = binary(x_bak, n_bak);
+
+    if (x < 0 && (n&1) == 1)
+        res *= -1;
     if (n < 0)
-        sum = 1 / sum;
-
-    return sum;
+        res = 1/res;
+    return res;
 }
