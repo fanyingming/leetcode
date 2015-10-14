@@ -1,72 +1,51 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     struct ListNode *next;
- * };
- */
-int isLongEnough(struct ListNode* head, int k) {
-    int count = 0;
-    struct ListNode* cur = head;
-    while (cur) {
-        cur = cur->next;
-        if (++count >= k)
-            return 1;
+bool isLongEnough(struct ListNode* head, int k) {
+    struct ListNode* h = head;
+    while (k-- > 0) {
+        if (h == NULL)
+            return false;
+        else
+            h = h->next;
     }
-    return 0;
+    return true;
 }
 
-struct ListNode* reverse(struct ListNode*head, int k) {
-    struct ListNode preNode;
-    struct ListNode *cur;
-    struct ListNode *pre;
-    struct ListNode *last;
-    int count = 0;
-    
-    preNode.next = NULL;
+struct ListNode* reverse(struct ListNode* head, int k) {
+    struct ListNode* t;
+    struct ListNode* cur;
+    struct ListNode  pre;
+
+    pre.next = NULL;
     cur = head;
-    pre = &preNode;
-    while (cur && ++count <= k) {
-        pre = preNode.next;
-        preNode.next = cur;
+    while (k-- > 0) {
+        t = pre.next;
+        pre.next = cur;
         cur = cur->next;
-        preNode.next->next = pre;
+        pre.next->next = t;
     }
-    head->next = cur;
-    return preNode.next;
-}
-
-struct ListNode* goSetp(struct ListNode* head, int k) {
-	int count = 0;
-    struct ListNode* cur = head;
-    while (cur) {
-        cur = cur->next;
-        if (++count >= k)
-            return cur ;
-    }
-    return NULL;
+    head->next = cur;//remember this operation, we need this to make list still linked.
+    return pre.next;
 }
 
 struct ListNode* reverseKGroup(struct ListNode* head, int k) {
-    struct ListNode preNode;
-    struct ListNode *cur;
-    struct ListNode *before;
-    
-    if (k == 1)
-        return head;
-    
-    cur = head;
-    preNode.next = head;
-    before = &preNode;
-    while (cur) {
-        if (isLongEnough(cur, k)) {
-            cur = before->next = reverse(cur, k);
-            before = goSetp(cur, k-1);
-            cur = before->next;
-        } else {
-        	break;
-        }
-    }
+    struct ListNode* before;
+    struct ListNode* cur;
+    struct ListNode  pre;
 
-    return preNode.next;
+    if (head == NULL || head->next == NULL || k == 0 || k == 1) return head;
+
+    pre.next = head;
+    before   = &pre;
+    cur = head;
+    while (cur) {
+        int step = k;
+        if (isLongEnough(cur, k)) {
+            before->next = reverse(cur, k);
+        } else {
+            break;
+        }
+        while (step-- > 0)
+            before = before->next;
+        cur = before->next;
+    }
+    return pre.next;
 }
