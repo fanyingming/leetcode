@@ -5,7 +5,7 @@ date:   2015-10-04 15:47:57
 categories: summary
 ---
 
-### 二叉数遍历
+#### 二叉数遍历
 
 - <https://leetcode.com/problems/binary-tree-preorder-traversal/>
 - <https://leetcode.com/problems/binary-tree-postorder-traversal/>
