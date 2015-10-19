@@ -10,38 +10,30 @@
 class Solution {
 public:
     vector<vector<int>> levelOrderBottom(TreeNode* root) {
-        queue<TreeNode *> q[2];
-		int index = 0;
-		vector<vector<int>> res;
-		vector<vector<int>> res_reverse;
+    	vector<vector<int>> rl;
+    	stack<vector<int>> rstack;
+    	queue<TreeNode*> que;
 
-		if (root == NULL)
-			return res;
-
-		q[index].push(root);
-
-		while (q[index].size() != 0) {
-			vector<int> tmp;
-			while(q[index].size() != 0) {
-				TreeNode * node = q[index].front();
-
-				tmp.push_back(node->val);
-				q[index].pop();
-
-				if (node->left)
-					q[(index+1)%2].push(node->left);
-				if (node->right)
-					q[(index+1)%2].push(node->right);
-			}
-
-			res.push_back(tmp);
-			index = (index+1)%2;
-		}
-
-		for (int i=res.size()-1; i >=0; i--) {
-			res_reverse.push_back(res.at(i));	
-		}
-
-		return res_reverse;
+    	if (root == NULL)	return rl;
+    	que.push(root);
+    	while (que.empty() == false) {
+    		int num = que.size();
+    		vector<int> row;
+    		for (int i = 0; i < num; i++) {
+    			TreeNode *node = que.front();
+    			que.pop();
+    			row.push_back(node->val);
+    			if (node->left)
+    				que.push(node->left);
+    			if (node->right)
+    				que.push(node->right);
+    		}
+    		rstack.push(row);
+    	}
+    	while (rstack.empty() == false) {
+    		rl.push_back(rstack.top());
+    		rstack.pop();
+    	}
+    	return rl;
     }
 };
