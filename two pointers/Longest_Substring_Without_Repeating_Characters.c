@@ -2,28 +2,26 @@ class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
         unordered_set<char> htable;
-        int i, begin = 0;
-        int max_length = 1;
-        
+        int index = 0;
+        int maxLength = 1;
+        int i;
+
         if (s.size() == 0)  return 0;
         htable.insert(s[0]);
         for (i = 1; i < s.size(); i++) {
-            unordered_set<char>::const_iterator it = htable.find(s[i]);
-            if (it == htable.end()) { // no dumplicate.
-                max_length = max(max_length, i-begin+1);
+            if (htable.find(s[i]) == htable.end()) {
                 htable.insert(s[i]);
+                maxLength = max(maxLength, i-index+1);
             } else {
-                for (int j = begin; j < i; j++) {
-                    if (s[j] == *it) {
-                        begin = j+1;
+                for (int j = index; j < i; j++) {
+                    if (s[j] == s[i]) {
+                        index = j+1;
                         break;
-                    } else {
-                        htable.erase(s[j]);
                     }
-                }//for
-            }//if
+                    htable.erase(s[j]);
+                }
+            }
         }
-        
-        return max_length;
+        return maxLength;
     }
 };
