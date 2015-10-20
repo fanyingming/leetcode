@@ -1,28 +1,33 @@
-/*
-**采用如下的递归构建数，递归在从底至顶过程中，不断返回创建出的节点，以作为上一次的孩子节点。
-*/
-int index1;
-
-struct TreeNode* buildBT (int* postorder, int* inorder, int left, int right) {
-    struct TreeNode* node;
-    int i;
-    if (left > right)
-        return NULL;
-    
-    for (i = left; i <= right; i++) {
-        if (postorder[index1] == inorder[i])
-            break;
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int postIndex;
+    TreeNode* build(vector<int>& inorder, vector<int>& postorder, int left, int right) {
+        if (left > right)
+            return NULL;
+        int i;
+        for (i = left; i <= right; i++)
+            if (inorder[i] == postorder[postIndex])
+                break;
+        postIndex--;
+        TreeNode *node = (TreeNode *)malloc(sizeof(TreeNode));
+        node->val = inorder[i];
+        node->right = build(inorder, postorder, i+1, right);
+        node->left  = build(inorder, postorder, left, i-1);
+        return node;
     }
-    node = malloc(sizeof(struct TreeNode));
-    node->val = postorder[index1--];
-    node->right = buildBT(postorder, inorder, i+1, right);
-    node->left  = buildBT(postorder, inorder, left, i-1);
-    return node;
-}
-
-struct TreeNode* buildTree(int* inorder, int inorderSize, int* postorder, int postorderSize) {
-    if (postorderSize != inorderSize)
-        return NULL;
-    index1 = postorderSize-1;
-    return buildBT(postorder, inorder, 0, inorderSize-1);
-}
+    
+    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+        if (inorder.size() != postorder.size()) return NULL;
+        postIndex = postorder.size()-1;
+        return build(inorder, postorder, 0, postIndex);
+    }
+};
