@@ -26,7 +26,7 @@ categories: summary
 - <https://leetcode.com/problems/binary-tree-maximum-path-sum/>
 - <https://leetcode.com/problems/flatten-binary-tree-to-linked-list/>
 - <https://leetcode.com/problems/invert-binary-tree/>
-- <https://leetcode.com/problems/binary-tree-right-side-view/ not easy to think>
+- <https://leetcode.com/problems/binary-tree-right-side-view/> not easy to think
 - <https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/>
 - <https://leetcode.com/problems/binary-tree-paths/>
 - <https://leetcode.com/problems/count-complete-tree-nodes/>
