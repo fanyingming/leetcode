@@ -1,28 +1,24 @@
-int removeDuplicates(int* nums, int numsSize) {
-	int l, r;
-	int same_count = 1;
-
-	if (nums == NULL || numsSize == 0)
-		return 0;
-	if (nums == 1)
-		return 1;
-	l = 0;
-	r = 1;
-	while (r < numsSize) {
-		if (nums[l] == nums[r]) {
-			if (same_count >= 2) {
-				r++;
-			} else {
-				nums[++l] = nums[r];
-				r++;
-				same_count++;
-			}
-		} else {
-			nums[++l] = nums[r];
-			r++;
-			same_count = 1;
-		}
-	}
-
-	return l + 1;
-}
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int len = nums.size();
+        int index = 0;
+        int count = 1;
+        if (len == 0)
+        	return 0;
+        for (int i = 1; i < nums.size(); i++) {
+        	if (nums[index] != nums[i]) {
+        		nums[++index] = nums[i];
+        		count = 1;
+        	} else {
+        		if (count >= 2) {
+        			count++;
+        		} else {
+        			count++;
+        			nums[++index] = nums[i];
+        		}
+        	}
+        }
+        return index+1;
+    }
+};
