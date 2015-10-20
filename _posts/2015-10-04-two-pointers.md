@@ -18,19 +18,19 @@ categories: summary
 #### 数据结构为数组：
 
 1. <https://leetcode.com/problems/move-zeroes/>
-- <https://leetcode.com/problems/remove-element/>
-- <https://leetcode.com/problems/valid-palindrome/>
-- <https://leetcode.com/problems/remove-duplicates-from-sorted-array/>
-- <https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/>
-- <https://leetcode.com/problems/merge-sorted-array/>
-- <https://leetcode.com/problems/longest-substring-without-repeating-characters/>
-- <https://leetcode.com/problems/substring-with-concatenation-of-all-words/> not easy to understand
-- <https://leetcode.com/problems/minimum-size-subarray-sum/> not easy to understand
-- <https://leetcode.com/problems/3sum/> not easy to think.
-- <https://leetcode.com/problems/3sum-closest/>
-- <https://leetcode.com/problems/4sum/>
-- <https://leetcode.com/problems/container-with-most-water/> not understand
-- <https://leetcode.com/problems/sort-colors/>
+2. <https://leetcode.com/problems/remove-element/>
+3. <https://leetcode.com/problems/valid-palindrome/>
+4. <https://leetcode.com/problems/remove-duplicates-from-sorted-array/>
+5. <https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/>
+6. <https://leetcode.com/problems/merge-sorted-array/>
+7. <https://leetcode.com/problems/longest-substring-without-repeating-characters/>
+8. <https://leetcode.com/problems/substring-with-concatenation-of-all-words/> not easy to understand
+9. <https://leetcode.com/problems/minimum-size-subarray-sum/> not easy to understand
+10. <https://leetcode.com/problems/3sum/> not easy to think.
+11. <https://leetcode.com/problems/3sum-closest/>
+12. <https://leetcode.com/problems/4sum/>
+13. <https://leetcode.com/problems/container-with-most-water/> not understand
+14. <https://leetcode.com/problems/sort-colors/>
  和[Dutch National Flag](http://www.csse.monash.edu.au/~lloyd/tildeAlgDS/Sort/Flag/)一样。左指针左边是0，右指针右边是2，左指针和当前下边index中间是1，其余的部分是待遍历元素。
 
 #### 链表：

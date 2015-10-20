@@ -55,6 +55,7 @@ categories: summary
 - <https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/>
  + 构造二叉搜索树。
 - <https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/>
+ + 理解二叉搜索树中顺遍历的顺序的是什么。
 - <https://leetcode.com/problems/kth-smallest-element-in-a-bst/>
 - <https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/>
 - <https://leetcode.com/problems/binary-search-tree-iterator/>
